@@ -13,4 +13,22 @@ import com.google.firebase.storage.StorageReference
 
 class ImagesActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityImagesBinding
+    private lateinit var storageRef: StorageReference
+    private lateinit var firebaseFirestore: FirebaseFirestore
+
+    override fun OnCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        binding = ActivityImagesBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        initVars()
+    }
+
+    private fun initVars() {
+
+        storageRef = FirebaseStorage.getInstance().reference.child("Images")
+        firebaseFirestore = FirebaseFirestore.getInstance()
+    }
 }
