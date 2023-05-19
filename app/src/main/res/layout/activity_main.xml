@@ -22,7 +22,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            >
 
             <ImageView
                 android:id="@+id/imageView"
@@ -35,6 +37,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/vector" />
+
+            <!-- Add a View with white background below the vector image -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/imageView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -60,7 +72,7 @@
             android:id="@+id/uploadBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/yellow"
+            android:background="@color/ic_launcher_background"
             android:text="Upload"
             android:foreground="?attr/selectableItemBackground"
             android:textAllCaps="true"
@@ -87,7 +99,7 @@
             android:id="@+id/showAllBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/yellow"
+            android:background="@color/ic_launcher_background"
             android:text="Show All"
             android:foreground="?attr/selectableItemBackground"
             android:textAllCaps="true"
@@ -106,14 +118,14 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/frame" />
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:indeterminateTint="@color/yellow"
+        android:indeterminateTint="@color/ic_launcher_background"
         app:layout_constraintBottom_toTopOf="@+id/materialCardView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

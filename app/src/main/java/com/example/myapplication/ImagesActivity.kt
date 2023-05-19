@@ -16,19 +16,37 @@ class ImagesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityImagesBinding
     private lateinit var storageRef: StorageReference
     private lateinit var firebaseFirestore: FirebaseFirestore
+    private var mList = mutableListOf<String>()
+    private lateinit var adapter: ImagesAdapter
 
-    override fun OnCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityImagesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initVars()
+        getImages()
     }
 
     private fun initVars() {
 
         storageRef = FirebaseStorage.getInstance().reference.child("Images")
         firebaseFirestore = FirebaseFirestore.getInstance()
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        adapter = ImagesAdapter(mList)
+        binding.recyclerView.adapter = adapter
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun getImages() {
+        firebaseFirestore.collection("images")
+            .get().addOnSuccessListener {
+                for(i in it){
+                    mList.add(i.data["pic"].toString())
+                }
+                adapter.notifyDataSetChanged()
+                binding.progressBar.visibility = View.GONE
+            }
     }
 }
