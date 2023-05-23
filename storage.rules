@@ -1,0 +1,21 @@
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /user-content/{namespace}/{fileName} {
+      allow read;
+      allow write: if (
+        resource == null &&
+        request.auth != null &&
+        request.auth.uid == request.resource.metadata.userId &&
+        fileName.split('\\.')[0] == request.resource.md5Hash.split('\\+').join('-').split('/').join('_').split('=').join('') &&
+        fileName.split('\\.')[1] == string(request.resource.size) &&
+        (
+          (request.resource.contentType == 'image/png'        && fileName.split('\\.')[2] == 'png'  && request.resource.size < (5 * 1024 * 1024)) ||
+          (request.resource.contentType == 'image/jpeg'       && fileName.split('\\.')[2] == 'jpg'  && request.resource.size < (5 * 1024 * 1024)) ||
+          (request.resource.contentType == 'text/plain'       && fileName.split('\\.')[2] == 'txt'  && request.resource.size < (5 * 1024 * 1024) && request.resource.contentEncoding == 'gzip') ||
+          (request.resource.contentType == 'text/markdown'    && fileName.split('\\.')[2] == 'md'   && request.resource.size < (5 * 1024 * 1024) && request.resource.contentEncoding == 'gzip') ||
+          (request.resource.contentType == 'application/json' && fileName.split('\\.')[2] == 'json' && request.resource.size < (5 * 1024 * 1024) && request.resource.contentEncoding == 'gzip')
+        )
+      );
+    }
+  }
+}

@@ -1,17 +1,18 @@
-package com.example.myapplication
+package com.example.imageuploader
 
 import androidx.appcompat.app.AppCompatActivity
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.myapplication.ImagesAdapter
 import com.example.myapplication.databinding.ActivityImagesBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
 
-class ImagesActivity : AppCompatActivity() {
+class ImagesActivityOrigin : AppCompatActivity() {
 
     private lateinit var binding: ActivityImagesBinding
     private lateinit var storageRef: StorageReference
@@ -27,18 +28,8 @@ class ImagesActivity : AppCompatActivity() {
 
         initVars()
         getImages()
-        registerClickEvents()
     }
 
-    private fun registerClickEvents() {
-        binding.SelectBtn.setOnClickListener {
-            selectImage()
-        }
-    }
-
-    private fun selectImage() {
-
-    }
 
     private fun initVars() {
 
@@ -60,7 +51,6 @@ class ImagesActivity : AppCompatActivity() {
                 binding.progressBar.visibility = View.GONE
             }
     }
-
 
 
 }

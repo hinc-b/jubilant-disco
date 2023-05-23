@@ -5,7 +5,9 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
-import com.example.certuploaderimage.databinding.ActivityMainBinding
+import com.example.myapplication.ImagesActivity
+import com.example.myapplication.R
+import com.example.myapplication.databinding.ActivityMainBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
