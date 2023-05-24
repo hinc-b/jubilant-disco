@@ -1,4 +1,4 @@
-package com.example.imageuploader
+package com.example.certuploaderimage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.annotation.SuppressLint
