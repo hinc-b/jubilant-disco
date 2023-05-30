@@ -27,14 +27,14 @@ class ImagesActivity : AppCompatActivity() {
 
         initVars()
         getImages()
-        registerClickEvents()
+//        registerClickEvents()
     }
 
-    private fun registerClickEvents() {
-        binding.SelectBtn.setOnClickListener {
-            selectImage()
-        }
-    }
+//    private fun registerClickEvents() {
+//        binding.SelectBtn.setOnClickListener {
+//            selectImage()
+//        }
+//    }
 
     private fun selectImage() {
 
