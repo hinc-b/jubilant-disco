@@ -69,4 +69,4 @@ When contributing, please ensure the following:
 
 ## License
 
-The Firebase Image Upload Android App is open-source software released under the MIT License. You are free to use, modify, and distribute the code for personal and commercial purposes.
+The Firebase Image Upload Android App is open-source software. You are free to use, modify, and distribute the code for personal and commercial purposes.
